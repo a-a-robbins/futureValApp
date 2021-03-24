@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">	
+    <title>Future Value Application</title>
+    <script>
+		var futureValue;
+		
+		// get user entries
+		do
+    {
+      do
+      {
+      var investment = prompt("Enter investment amount as xxxxx.xx", 10000);
+      investment = parseFloat(investment);
+        if(isNaN(investment))
+          {
+            alert("Investment must be a number");
+          }
+      } while(isNaN(investment)); 
+      do
+      {
+      var rate = prompt("Enter interest rate as xx.x", 7.5);
+      rate = parseFloat(rate);
+        if(isNaN(rate))
+        {
+          alert("Rate must be a number"); 
+        }
+        if(rate < 0 || rate > 15)
+        {
+          alert("Rate must be between 0-15"); 
+        }
+      } while(isNaN(rate) || (rate < 0 || rate > 15));
+		var years = prompt("Enter number of years", 10);
+		years = parseInt(years);
+    var repeat = prompt("Repeat? (y to continue, any other key to quit", "y");
+    		
+		// calulate future value
+    document.write("Investment amount = " + investment);
+		document.write(" Interest rate = " + rate);
+		document.write(" Years = " + years);
+    document.write("<br>")
+		futureValue = investment;
+		for (var i = 1; i <= years; i++ ) 
+    {
+      document.write("Year = " + i + " "+ "Interest = " + (futureValue * rate /100) + " " + "Value = " + (futureValue + (futureValue * rate / 100)) + "<br>"); 
+			futureValue = futureValue + (futureValue * rate / 100);
+		}
+    document.write("<br>")
+		futureValue = parseInt(futureValue);	
+    } while(repeat == "y" || repeat == "Y");
+    </script>
+</head>
+<body>
+    <main>
+        Thanks for using the Future Value application.
+    </main>
+</body>
+</html>
